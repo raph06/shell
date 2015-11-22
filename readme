@@ -1,0 +1,8 @@
+Les fonction mouve et remouve:
+
+- Sont accompagnées de manuels mouve.1.gz et remouve.1.gz destinées aux répertoires /usr/shared/man/man(n).
+  ils contiennent les informations sur les bugs rencontrés, leur provenance et  la difficulté pour les corriger.
+  Utilisation: man $0 dans le shell
+- Ils sauvegardent les adresses des fichiers modifiés et/ou supprimés depuis la dernière utilisation de 
+  la commande bonjour.
+  
