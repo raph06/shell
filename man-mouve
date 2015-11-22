@@ -18,14 +18,15 @@ DEST
 Displays help
 
 .SH BUGS
-This script does not allow usage of mv natives options Default: mv
+.BR This script does not allow usage of mv natives options Default: mv
 
-.BR "La sortie d'erreur n'a pas été prise en charge pour ne pas allourdir le script"
+.B La sortie d'erreur n'a pas été prise en charge pour ne pas allourdir le script
 
-This script does not allow spaces in files name.
+.BR This script does not allow spaces in files name.
 
-.BR "Si un fichier est sous la forme "egg\ bacon\ spam.py": 
+.B Si un fichier est sous la forme "egg\ bacon\ spam.py": 
 .B La modification sera enregistré dans le bonjour.mv sans que le fichier ait été modifié.
+
 .SH AUTHOR
 Written by Raphaël BONNET, Hubert GRUNIG, Vincent GUERLAIS, Nori SADOUNI
 
