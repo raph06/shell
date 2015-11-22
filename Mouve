@@ -27,4 +27,4 @@ final_location=$dir$path
 # MAIN 
 ## On déplace (renomme) le fichier et on enregistre les infos dans un fichier
 mv $1 $2
-  echo "$dir$1 déplacé vers: $final_location$file" >> ~/mouve.txt; 
+  echo "$dir$1 déplacé vers: $final_location$file" >> ~/bonjour.mv; 
