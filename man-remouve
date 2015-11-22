@@ -1,0 +1,34 @@
+.TH REMOUVE
+.SH NAME
+remouve \- uses rm -rf to remove files and save names/directory in ~/bonsoir.rm
+
+.SH SYNOPSIS
+.B remouve
+[\fB\--help\fR] ... 
+FILE
+
+.SH DESCRIPTION
+.B remouve removes files.
+--help displays help
+
+.SH OPTIONS
+.TP
+.BR \--help "
+Displays help
+
+.SH BUGS
+This script does not allow usage of rm natives options: Default: rm -rf
+.BR "La sortie d'erreur n'a pas été prise en charge pour ne pas allourdir le script"
+
+.SH AUTHOR
+Written by Raphaël BONNET, Hubert GRUNIG, Vincent GUERLAIS, Nori SADOUNI
+
+.SH COPYRIGHT
+This  is  free  software: you are free to change and redistribute it.  There is NO WARRANTY, to the extent permitted by
+law.
+
+.SH SEE ALSO
+mv
+
+Full documentation at: <http://www.gnu.org/software/coreutils/mv>
+or available locally via: info '(coreutils) mv invocation'
