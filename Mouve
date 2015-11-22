@@ -1,0 +1,30 @@
+#! /bin/bash
+###Informations: "man mouve"###
+
+#CONDITIONS ET GESTIONS D'ERREUR
+##Test d'absence d'argument:
+if [ $# -eq 0 ] ; then 
+ echo 'Erreur: Il manque des arguments à la fonction mouve'
+ mouve -h #renvoie l'aide
+ exit 0
+fi 
+
+##Test de présence de l'option -h en argument:
+if [ "$1" == "-h" ] || [ "$1" == "--help" ]; then 
+  echo "Usage: `basename $0` [-h][--help] [Source] [Destination]"
+  echo "Informations: « man mouve »"
+  exit 0
+fi
+
+# ASSIGNATION A DES VARIABLES:
+##Le but ici est d'alléger le main et de récuperer les
+##chemins des fichier au départ et à l'arrivée:
+dir=$(pwd)/  
+path=$(dirname $2)/
+file=$(basename $2)
+final_location=$dir$path 
+
+# MAIN 
+## On déplace (renomme) le fichier et on enregistre les infos dans un fichier
+mv $1 $2
+  echo "$dir$1 déplacé vers: $final_location$file" >> ~/mouve.txt; 
