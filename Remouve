@@ -1,0 +1,28 @@
+#! /bin/bash
+###Informations: "man remouve"###
+
+#CONDITIONS ET GESTION D'ERREURS:
+##Test d'absence d'argument:
+if [ $# -eq 0 ] ; then 
+ echo "Erreur: Agruments manquants"
+ remouve -h #renvoie l'aide
+ exit 0
+fi 
+
+##Test de présence de l'option -h en argument
+if [ "$1" == "-h" ] || [ "$1" == "--help" ]; then 
+  echo "Usage: `basename $0` [-h][--help] [Fichier à supprimer]"
+  echo "Informations: « man remouve »"
+  exit 0
+fi
+
+# ASSIGNATION A DES VARIABLES:
+##Le but ici est de récuperer le chemin d'accés
+##du dossier d'où on à supprimé le fichier
+dir=$(pwd)/
+fichier=$1
+
+#MAIN
+##Suppresion et sauvegarde du chemin d'accès du fichier supprimé: 
+rm -rf $fichier
+  echo "$dir$1 supprimé de $dir" >> ~/remouve.txt
