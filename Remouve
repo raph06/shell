@@ -25,4 +25,4 @@ fichier=$1
 #MAIN
 ##Suppresion et sauvegarde du chemin d'accès du fichier supprimé: 
 rm -rf $fichier
-  echo "$dir$1 supprimé de $dir" >> ~/remouve.txt
+  echo "$dir$1 supprimé de $dir" >> ~/bonjour.rm
