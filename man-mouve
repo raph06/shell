@@ -1,0 +1,37 @@
+.TH MOUVE
+.SH NAME
+mouve \- uses mv to (rename) files and save source/dest && names/directory in ~/bonjour.mv
+
+.SH SYNOPSIS
+.B mouve
+[\fB\--help\fR] ... 
+SOURCE
+DEST
+
+.SH DESCRIPTION
+.B mouve rename SOURCE to DEST, or move SOURCE(s) to DIRECTORY.
+--help display help
+
+.SH OPTIONS
+.TP
+.BR \--help "
+Displays help
+
+.SH BUGS
+This script does not allow usage of mv natives options Default: mv
+
+.BR "La sortie d'erreur n'a pas été prise en charge pour ne pas allourdir le script"
+
+
+.SH AUTHOR
+Written by Raphaël BONNET, Hubert GRUNIG, Vincent GUERLAIS, Nori SADOUNI
+
+.SH COPYRIGHT
+This  is  free  software: you are free to change and redistribute it.  There is NO WARRANTY, to the extent permitted by
+law.
+
+.SH SEE ALSO
+mv
+
+Full documentation at: <http://www.gnu.org/software/coreutils/mv>
+or available locally via: info '(coreutils) mv invocation'
