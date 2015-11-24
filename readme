@@ -1,4 +1,4 @@
-Les fonctions mouve et remouve:
+Les fonctions mouve et remouve destinées au répertoire /bin:
 
 - Sont accompagnées de manuels mouve.1.gz et remouve.1.gz destinées aux répertoires /usr/shared/man/man(n).
   Ceux-ci contiennent les informations sur les bugs rencontrés, leur provenance et la difficulté à les corriger.
