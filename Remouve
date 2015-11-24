@@ -20,9 +20,12 @@ fi
 ##Le but ici est de récuperer le chemin d'accés
 ##du dossier d'où on à supprimé le fichier
 dir=$(pwd)/
-fichier=$1
 
 #MAIN
 ##Suppresion et sauvegarde du chemin d'accès du fichier supprimé: 
-rm -rf $fichier
+while [ $# -gt 0 ] # parametres >=2
+do
+  rm -rf $1
   echo "$dir$1 supprimé de $dir" >> ~/bonjour.rm
+  shift
+done
