@@ -21,10 +21,21 @@ fi
 ##chemins des fichier au départ et à l'arrivée:
 dir=$(pwd)/  
 path=$(dirname $2)/
-file=$(basename $2)
+file=$(basename ${@: -1})
 final_location=$dir$path 
 
 # MAIN 
 ## On déplace (renomme) le fichier et on enregistre les infos dans un fichier
-mv $1 $2
-  echo "$dir$1 déplacé vers: $final_location$file" >> ~/bonjour.mv; 
+
+if [ "$#" -eq 2 ] #parametre=2
+then 
+  mv $1 $2
+  echo "$dir$1 déplacé vers: $final_location$file" >> ~/bonjour.mv;
+else
+while [ $# -gt 1 ] #parametres>2
+do
+  mv $1 ${@: -1}
+  echo "$dir$1 déplacé vers: $final_location$file" >> ~/bonjour.mv;
+  shift
+done
+fi
