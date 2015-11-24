@@ -4,6 +4,7 @@ Les fonctions mouve et remouve:
   Ceux-ci contiennent les informations sur les bugs rencontrés, leur provenance et la difficulté à les corriger.
   Utilisation: "man $0" 
 - Ils sauvegardent les adresses des fichiers modifiés et/ou supprimés depuis la dernière utilisation de 
-  la commande bonjour.
+  la commande bonjour.mv/bonjour.rm
+- Ils permettent tout comme les commandes mv et rm de déplacer/supprimer plusieurs fichiers à la fois 
   
   
