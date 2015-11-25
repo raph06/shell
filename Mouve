@@ -3,7 +3,7 @@
 
 #CONFIGURATION DES OPTIONS DE MV:
 ##Fichier config: ~/.syncrc
-###Par défault on appelle la variable: 'Info_and_safe=mv -i'
+###Par défault on appelle la variable: 'Info_and_safe_mv=mv -i'
 . ~/.syncrc
 
 #CONDITIONS ET GESTIONS D'ERREUR
@@ -36,7 +36,7 @@ final_location=$dir$path
 if [ ! -e "$dir$1" ] #si le fichier n'existe pas
 then
 echo "Erreur: Le fichier $dir$1 n'existe pas."
-else #si le fichier existe
+else
 if [ "$#" -eq 2 ] #parametre=2
 then 
   mv ${Info_and_safe_mv} $1 $2
