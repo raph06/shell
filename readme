@@ -5,11 +5,13 @@ Les fonctions mouve et remouve destinées au répertoire /bin:
   Utilisation: "man $0"
 - Sauvegardent les adresses des fichiers modifiés et/ou supprimés depuis la dernière utilisation de 
   la commande bonjour.mv/bonjour.rm. 
-- Ils permettent tout comme les commandes mv et rm de déplacer/supprimer plusieurs fichiers à la fois 
-  
+- Permettent tout comme les commandes mv et rm de déplacer/supprimer plusieurs fichiers à la fois 
+- Ont leurs options configurables dans le fichier ~/.syncrc
+
 Commentaires: 
 
 -La création du manuel est un aspect "découverte" du projet, instructif au regard de la synthaxe 
-  particulière du fichier foo.1 et de la localisation des mans dans la machine.
+ particulière du fichier foo.1 et de la localisation des mans dans la machine.
 -Les fonctions dirname basename été trouvées assez simplement
 -La fonction swich à permis le remplacement de boucles 'for' probablement maladroites. 
+-La gestion d'erreur allourdie un peu le script mais rend le programme plus robuste et "userfriendly"
