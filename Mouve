@@ -3,14 +3,14 @@
 
 #CONFIGURATION DES OPTIONS DE MV:
 ##Fichier config: ~/.syncrc
-###Par défault on appelle la variable: 'basic= mv'
+###Par défault on appelle la variable: 'Info_and_safe=mv -vi'
 . ~/.syncrc
 
 #CONDITIONS ET GESTIONS D'ERREUR
 ##Test d'absence d'argument:
-if [ "$#" -le 2 ] && [ "$1" != "-h" ]; then 
+if [ "$#" -le 1 ] && [ "$1" != "-h" ]; then 
  echo Erreur: Il manque des arguments à la fonction mouve
- mouve -h #renvoie l'aide
+ mouve -h #renvoie l'aide 
  exit 0
 fi 
 
@@ -36,13 +36,12 @@ final_location=$dir$path
 
 if [ "$#" -eq 2 ] #parametre=2
 then 
-  mv ${Info_and_safe} $1 $2
+  mv ${Info_and_safe_mv} $1 $2
   echo "$dir$1 déplacé vers: $final_location$file" >> ~/bonjour.mv;
 else #parametres>2 et dossier destination existe
   while [ "$#" -gt 1 ] && [ `find ${@: -1} -type d` ]
     do
-      condition=0
-      mv ${Info_and_safe} $1 ${@: -1}
+      mv ${Info_and_safe_mv} $1 ${@: -1}
       echo "$dir$1 déplacé vers: $final_location$file" >> ~/bonjour.mv;
       shift
     done
