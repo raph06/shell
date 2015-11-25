@@ -1,9 +1,14 @@
 #! /bin/bash
 ###Informations: "man remouve"###
 
+#CONFIGURATION DES OPTIONS DE MV:
+##Fichier config: ~/.syncrc
+###Par défault on appelle la variable: 'Force_rm=rm -rf'
+. ~/.syncrc
+
 #CONDITIONS ET GESTION D'ERREURS:
 ##Test d'absence d'argument:
-if [ $# -eq 0 ] ; then 
+if [ "$#" -eq 0 ] ; then 
  echo "Erreur: Agruments manquants"
  remouve -h #renvoie l'aide
  exit 0
@@ -23,9 +28,14 @@ dir=$(pwd)/
 
 #MAIN
 ##Suppresion et sauvegarde du chemin d'accès du fichier supprimé: 
-while [ $# -gt 0 ] # parametres >=2
+if [ ! -e "$dir$1" ] #si le fichier n'existe pas
+then
+echo "Erreur: Le fichier $dir$1 n'existe pas."
+else #si le fichier existe
+while [ "$#" -gt 0 ] #parametres>=1
 do
-  rm -rf $1
+  rm ${Info_and_safe_rm} $1
   echo "$dir$1 supprimé de $dir" >> ~/bonjour.rm
   shift
 done
+fi
