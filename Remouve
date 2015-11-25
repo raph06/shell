@@ -34,7 +34,7 @@ echo "Erreur: Le fichier $dir$1 n'existe pas."
 else #si le fichier existe
 while [ "$#" -gt 0 ] #parametres>=1
 do
-  rm ${Info_and_safe_rm} $1
+  rm ${Force_rm} $1
   echo "$dir$1 supprimé de $dir" >> ~/bonjour.rm
   shift
 done
