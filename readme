@@ -1,7 +1,7 @@
-Les fonctions mouve et remouve destinées au répertoire /bin:
+Les commandes mouve et remouve destinées au répertoire /bin:
 
 - Sont accompagnées de manuels mouve.1.gz et remouve.1.gz destinées aux répertoires /usr/shared/man/man(n).
-  Ceux-ci contiennent les informations sur les bugs rencontrés, leur provenance et la difficulté à les corriger.
+  Ceux-ci contiennent les informations sur les bugs rencontrés, leur provenance et la difficulté pour les corriger.
   Utilisation: "man $0"
 - Sauvegardent les adresses des fichiers modifiés et/ou supprimés depuis la dernière utilisation de 
   la commande bonjour.mv/bonjour.rm. 
@@ -12,6 +12,6 @@ Commentaires:
 
 -La création du manuel est un aspect "découverte" du projet, instructif au regard de la synthaxe 
  particulière du fichier foo.1 et de la localisation des mans dans la machine.
--Les fonctions dirname basename été trouvées assez simplement
+-Les fonctions dirname basename ont été trouvées assez simplement
 -La fonction swich à permis le remplacement de boucles 'for' probablement maladroites. 
--La gestion d'erreur allourdie un peu le script mais rend le programme plus robuste et "userfriendly"
+-La gestion d'erreur allourdit un peu le script mais rend le programme plus robuste et "userfriendly"
