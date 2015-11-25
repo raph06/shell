@@ -2,9 +2,9 @@
 ### Informations: "man mouve" ###
 
 #CONFIGURATION DES OPTIONS DE MV:
-##Fichier config: ~/.mouverc
+##Fichier config: ~/.syncrc
 ###Par défault on appelle la variable: 'basic= mv'
-. ~/.mouverc
+. ~/.syncrc
 
 #CONDITIONS ET GESTIONS D'ERREUR
 ##Test d'absence d'argument:
