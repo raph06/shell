@@ -1,0 +1,5 @@
+####Mouve and remouve options####
+Force_mv="-f"
+Info_and_safe_mv="-vi"
+Force_rm="-rf"
+Info_and_safe_rm="-vrI"
