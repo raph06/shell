@@ -35,7 +35,7 @@ else #si le fichier existe
 while [ "$#" -gt 0 ] #parametres>=1
 do
   rm ${Force_rm} $1
-  echo "$dir$1 supprimé de $dir" >> ~/bonjour.rm
+  echo "$dir$1" >> ~/bonjour.rm
   shift
 done
 fi
