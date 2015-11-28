@@ -14,4 +14,6 @@ Commentaires:
  particulière du fichier foo.1 et de la localisation des mans dans la machine.
 -Les fonctions dirname basename ont été trouvées assez simplement
 -La fonction swich à permis le remplacement de boucles 'for' probablement maladroites. 
+-Les options de mv et rm sont gérés avec la méthode arguments. On suppose qu'un bon utilisateur respectera l'ordre des 
+ des options et des arguments.
 -La gestion d'erreur allourdit un peu le script mais rend le programme plus robuste et "userfriendly"
