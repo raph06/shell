@@ -1,3 +1,9 @@
+Configuration système avant utilisation:
+
+- Vérifier que la clée usb est bien montée sur /dev/sdb1 avec la commande fdisk -l
+- Ouvrir le fichier /etc/fstab avec les droits d'accés root et ajouter la ligne suivante en fin de fichier:
+/dev/sdb1  /mnt/usbkey       vfat    user,sync,auto      0      1
+
 Les commandes mouve et remouve destinées au répertoire /bin:
 
 - Sont accompagnées de manuels mouve.1.gz et remouve.1.gz destinées aux répertoires /usr/shared/man/man(n).
