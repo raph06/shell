@@ -4,9 +4,16 @@
 #CONFIGURATION DES OPTIONS DE MV:
 ##Fichier config: ~/.syncrc
 ###Par défault on appelle la variable: 'Info_and_safe_mv=mv -i'
-. ~/.syncrc
+. $HOME/.syncrc
 
 #CONDITIONS ET GESTIONS D'ERREUR
+## Test de présence du fichier de configuration
+if [ ! -f "$HOME/.syncrc" ]; then
+echo Fichier de configuration introuvable
+man mouve
+exit 1
+fi
+
 ##Test d'absence d'argument:
 if [ "$#" -eq 0 ]; then 
  echo Erreur: Il manque des arguments à la fonction mouve
@@ -30,8 +37,8 @@ dir=$(pwd)/
 ##Parametres>=2 et actualisation de atime du fichier déplacé
   while [ "$#" -gt 1 ]
     do
-      mv "${Force_mv}" "$1" "${@: -1}" || exit 1
-      echo "$dir$1" >> ~/bonjour.mv;
-      touch "$2"
+      mv "${option_mv}" "$1" "${@: -1}" || exit 1
+      echo "$dir$1" >> ~/bonjour.mv
+      touch "$2" #astuce pour actualiser les dates de modification du fichier
       shift
     done
