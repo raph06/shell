@@ -28,7 +28,7 @@ fi
 dir=$(pwd)/  
 path=$(dirname $2)/
 #file=$(basename ${@: -1})
-final_location=$dir$path 
+#final_location=$dir$path 
 
 
 # MAIN 
