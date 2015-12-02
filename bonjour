@@ -1,0 +1,31 @@
+#!/bin/bash
+
+# Il faudra remplacer ces noms de fichiers de test par les véritables $HOME et clé une fois que le programme marchera sans risque pour $HOME
+
+dossierHome=$HOME/Prog/ProjetMaster/tedir
+cle=$HOME/Prog/ProjetMaster/cle
+bonjour_mv=$cle/archive
+bonjour_rm=$cle/archive2
+RM=/bin/rm
+
+
+#archive est la liste temporaire pour les tests. Elle sera normalement composée de bonjour.rm et bonjour.mv
+
+echo "bonjour"
+
+#Touch pour modifier la date de dernière utilisation de bonjour parce que l'éxecution ne la modifie pas
+touch bonjour
+
+#suppression des fichiers supprimés ou déplacés par les commandes mouve ou remouve
+#for i in $(cat $cle/archive); do
+#	rm -rf "$i"
+#done
+
+cat $bonjour_mv $bonjour_rm | xargs $RM -rf
+
+#extraction de l'archive archiveBonsoir.tar dans $HOME
+
+tar -xf archiveBonsoir.tar
+
+#find . -name Hello4
+#cat $cle/archive2 | xargs find . -name
