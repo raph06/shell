@@ -5,7 +5,7 @@ Configuration système avant utilisation:
   (L'utilisation du numéro UUID est possible à la place de /dev/usb cf.blkid si vous utilisez toujours la même clée)
 - Créer le dossier où sera montée la clée: mkdir /mnt/usbkey
 - Ouvrir le fichier /etc/fstab avec les droits d'accés root et ajouter la ligne suivante en fin de fichier:
-/dev/sdb1  /mnt/usbkey       vfat    user,rw,exec,noauto      0      0
+/dev/sdb1  /mnt/usbkey       vfat    user,rw,noauto      0      0
 
 Les commandes bonjour et bonsoir destinées au répertoire /bin:
 Les commandes mouve et remouve destinées au répertoire /bin:
