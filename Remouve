@@ -36,5 +36,5 @@ else #si le fichier existe
       rm ${Force_rm} $1 || exit 1
       echo "$dir$1" >> ~/bonjour.rm
       shift
-done
+    done
 fi
