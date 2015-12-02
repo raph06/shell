@@ -1,6 +1,7 @@
 .TH MOUVE
 .SH NAME
-mouve \- uses mv to (rename) files and save source/dest && names/directory in ~/bonjour.mv
+mouve \- uses mv to (rename) files and save source/dest in ~/bonjour.mv 
+      \- refresh the mtime of the file once moved
 
 .SH SYNOPSIS
 .B mouve
@@ -10,9 +11,10 @@ DEST
 
 .SH DESCRIPTION
 .B mouve rename SOURCE to DEST, or move SOURCE(s) to DIRECTORY.
---help display help
+
 
 .SH OPTIONS
+.B Les options sont configurables dans le fichier $HOME/.syncrc
 .TP
 .BR \--help "
 Displays help
@@ -20,21 +22,21 @@ Displays help
 .SH BUGS
 .B This script does not allow usage of mv natives options Default: mv
 
-On aurrait pu ajouter des 'case' et un troisème argument pour associer les options de mv au troisième argument. 
-La gestion du bug n'a pas été prise en charge pour ne pas allourdir le script.
+On aurait pu ajouter des 'case' pour associer les options de mv. 
+La gestion n'a pas été prise en charge pour ne pas allourdir le script.
 
 .B This script does not allow spaces in files name.
 
 Si un fichier est sous la forme "egg\ bacon\ spam.py"
-La modification sera enregistré dans le bonjour.mv sans que le fichier ait été modifié.
+La modification sera enregistré dans le bonjour.mv sans le caractère d'échappement.
 La gestion du bug n'a pas été pris en charge pour ne pas allourdir le script.
+
 
 .SH AUTHOR
 Written by Raphaël BONNET, Hubert GRUNIG, Vincent GUERLAIS, Nori SADOUNI
 
 .SH COPYRIGHT
-This  is  free  software: you are free to change and redistribute it.  There is NO WARRANTY, to the extent permitted by
-law.
+This  is  free  software: you are free to change and redistribute it.  There is NO WARRANTY, to the extent permitted by law.
 
 .SH SEE ALSO
 mv
