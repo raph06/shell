@@ -27,15 +27,14 @@ fi
 dir=$(pwd)/
 
 #MAIN
-##Suppresion et sauvegarde du chemin d'accès du fichier supprimé: 
 if [ ! -e "$dir$1" ] #si le fichier n'existe pas
-then
-echo "Erreur: Le fichier $dir$1 n'existe pas."
+  then
+  echo "Erreur: Le fichier $dir$1 n'existe pas."
 else #si le fichier existe
-while [ "$#" -gt 0 ] #parametres>=1
-do
-  rm ${Force_rm} $1
-  echo "$dir$1" >> ~/bonjour.rm
-  shift
+  while [ "$#" -gt 0 ] #parametres>=1
+    do
+      rm ${Force_rm} $1 || exit 1
+      echo "$dir$1" >> ~/bonjour.rm
+      shift
 done
 fi
