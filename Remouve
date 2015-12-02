@@ -1,12 +1,19 @@
 #! /bin/bash
 ###Informations: "man remouve"###
 
-#CONFIGURATION DES OPTIONS DE MV:
+#CONFIGURATION DES OPTIONS DE RM:
 ##Fichier config: ~/.syncrc
-###Par défault on appelle la variable: 'Force_rm=rm -rf'
-. ~/.syncrc
+###Par défault on appelle la variable: 'option_rm=rm -rf'
+. $HOME/.syncrc
 
 #CONDITIONS ET GESTION D'ERREURS:
+## Test de présence du fichier de configuration
+if [ ! -f "$HOME/.syncrc" ]; then
+echo Fichier de configuration introuvable
+man remouve
+exit 1
+fi
+
 ##Test d'absence d'argument:
 if [ "$#" -eq 0 ] ; then 
  echo "Erreur: Agruments manquants"
@@ -16,10 +23,12 @@ fi
 
 ##Test de présence de l'option -h en argument
 if [ "$1" == "-h" ] || [ "$1" == "--help" ]; then 
-  echo "Usage: `basename $0` [-h][--help] [Fichier à supprimer]"
+  echo "Usage: $(basename "$0") [-h][--help] [Fichier à supprimer]"
   echo "Informations: « man remouve »"
   exit 0
 fi
+
+
 
 # ASSIGNATION A DES VARIABLES:
 ##Le but ici est de récuperer le chemin d'accés
@@ -27,14 +36,14 @@ fi
 dir=$(pwd)/
 
 #MAIN
-if [ ! -e "$dir$1" ] #si le fichier n'existe pas
+if [ ! -e "$dir$1" ] #si le fichier n'existe pas (NB: on utilise -rf)
   then
   echo "Erreur: Le fichier $dir$1 n'existe pas."
 else #si le fichier existe
   while [ "$#" -gt 0 ] #parametres>=1
     do
-      rm ${Force_rm} $1 || exit 1
+      rm "${option_rm}" "$1" || exit 1
       echo "$dir$1" >> ~/bonjour.rm
       shift
-    done
+done
 fi
