@@ -8,45 +8,30 @@
 
 #CONDITIONS ET GESTIONS D'ERREUR
 ##Test d'absence d'argument:
-if [ "$#" -le 1 ] && [ "$1" != "-h" ]; then 
+if [ "$#" -eq 0 ]; then 
  echo Erreur: Il manque des arguments à la fonction mouve
  mouve -h #renvoie l'aide
  exit 0
 fi 
 
 ##Test de présence de l'option -h en argument:
-if [ "$1" == "--help" ]  || [ "$1" == "-h" ]; then 
-  echo "Usage: `basename $0` [-h][--help] [Source] [Destination]"
+if [ "$1" == "--help" ]  || [ "$1" == "-h" ] ; then 
+  echo "Usage: $(basename "$0") [-h][--help] [Source] [Destination]"
   echo "Informations: « man mouve »"
   exit 0
 fi
 
 # ASSIGNATION A DES VARIABLES:
-##Le but ici est d'alléger le main et de récuperer les
-##chemins des fichier au départ et à l'arrivée:
+##Le but ici est d'alléger le main et de récuperer le
+##chemin de fichier avant modification:
 
-dir=$(pwd)/  
-path=$(dirname $2)/
-#file=$(basename ${@: -1})
-#final_location=$dir$path 
+dir=$(pwd)/   
 
-
-# MAIN 
-## On déplace (renomme) le fichier et on enregistre les infos dans un fichier
-if [ ! -e "$dir$1" ] #si le fichier n'existe pas
-then
-echo "Erreur: Le fichier $dir$1 n'existe pas."
-else
-if [ "$#" -eq 2 ] #parametre=2
-then 
-  mv ${Info_and_safe_mv} $1 $2
-  echo "$dir$1" >> ~/bonjour.mv;
-else #parametres>2 et dossier destination existe
-  while [ "$#" -gt 1 ] && [ `find ${@: -1} -type d` ]
+##Parametres>=2 et actualisation de atime du fichier déplacé
+  while [ "$#" -gt 1 ]
     do
-      mv ${Force_mv} $1 ${@: -1}
+      mv "${Force_mv}" "$1" "${@: -1}" || exit 1
       echo "$dir$1" >> ~/bonjour.mv;
+      touch "$2"
       shift
     done
-fi
-fi
