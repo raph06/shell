@@ -20,7 +20,7 @@ Les commandes mouve et remouve destinées au répertoire /bin:
 
 Commentaires: 
 
--La création du manuel est un aspect "découverte" du projet, instructif au regard de la synthaxe 
+-La création du manuel est un aspect "découverte" du projet, instructif au regard de la syntaxe 
  particulière du fichier foo.1 et de la localisation des mans dans la machine.
 -Les fonctions dirname basename ont été trouvées assez simplement
 -La fonction swich à permis le remplacement de boucles 'for' probablement maladroites. 
