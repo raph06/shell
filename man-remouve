@@ -12,22 +12,16 @@ FILE
 --help displays help
 
 .SH OPTIONS
+.B Les options sont configurables dans le fichier $HOME/.syncrc
 .TP
 .BR \--help "
 Displays help
 
 .SH BUGS
-.B This script does not allow usage of mv natives options Default: mv
+This script does not allow usage of rm natives options: Default: rm -rf
+.BR "La sortie d'erreur n'a pas été prise en charge pour ne pas allourdir le script"
 
-On aurrait pu ajouter des 'case' et un troisème argument pour associer les options de mv au troisième argument. 
-La gestion du bug n'a pas été prise en charge pour ne pas allourdir le script.
-
-.B This script does not allow spaces in files name.
-
-Si un fichier est sous la forme "./egg\ bacon\ spam.py"
-La modification sera enregistré dans le bonjour.rm sans que le fichier ait été supprimé.
-La gestion du bug n'a pas été pris en charge pour ne pas allourdir le script.
-
+.BR "
 .SH AUTHOR
 Written by Raphaël BONNET, Hubert GRUNIG, Vincent GUERLAIS, Nori SADOUNI
 
