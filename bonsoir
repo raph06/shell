@@ -1,0 +1,28 @@
+#!/bin/bash
+
+. $HOME/.syncrc
+
+#Trace pour indiquer que le programme s'est executé
+echo "bonsoir"
+
+#On veut les fichiers modifiés depuis la derniere exécution de bonjour ou bonsoir, 
+#il faut donc déjà trouver celui qui s'est exécuté le plus récemment
+if [ ${bonjour} -nt ${bonsoir} ]
+then
+	recent=${bonjour}
+else
+	recent=${bonsoir}
+fi
+
+#création de la liste d'exclusion qui ressemble à " --exclude patern1 --exclude patern2 ..."
+exclude=
+for patern in ${exclusion} ; do
+	exclude="$exclude --exclude=$patern"
+done
+
+#l'option P permet de garder les path absolus pour que lors de l'extraction les fichiers soit écrits au bon endroit. 
+tar -cPf ${locate_archive} --newer $recent $exclude ${dossierHome} || exit 1
+
+#On touch le programme pour mettre à jour sa dernière modification, 
+#il est important de le faire à la fin contrairement à bonjour car on consulte la date au début du programme.
+touch ${bonsoir}
