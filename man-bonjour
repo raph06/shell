@@ -1,0 +1,39 @@
+.TH BONJOUR
+.SH NAME
+Bonjour \- uses tar -x to decompress files and touch to make a temporale marker
+
+.SH SYNOPSIS
+.B Bonjour
+[\fB\--help\fR] ... 
+SOURCE
+DEST
+
+.SH DESCRIPTION
+.B Bonjour et Bonsoir maintiennent en coherence les homedirectories.
+--help display help
+
+.SH OPTIONS
+.TP
+.BR \--help "
+Displays help
+
+.SH BUGS
+.B This script does not allow usage of tar simple operation.
+
+La difficulte a ete de gerer les elements lus dans bonjour_mv bonjour_rm. xargs a permis de gerer ses elements en les utilisant en tant qu arguments. Ceci a alleger le script. 
+
+
+.B This script does not allow spaces in files name.
+
+
+.SH AUTHOR
+Written by Raphael BONNET, Hubert GRUNIG, Vincent GUERLAIS, Nori SADOUNI
+
+.SH COPYRIGHT
+This  is  free  software: you are free to change and redistribute it.  There is NO WARRANTY, to the extent permitted by
+law.
+
+.SH SEE ALSO
+tar
+
+Full documentation at: <http://www.gnu.org/software/tar/manual/tar.html>
