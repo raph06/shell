@@ -1,0 +1,43 @@
+.TH BONSOIR
+.SH NAME
+Bonsoir \- uses —newer to find newer files. Bonsoir
+
+.SH SYNOPSIS
+.B bonsoir
+[\fB\--help\fR] ... 
+FILE
+
+.SH DESCRIPTION
+.B Bonjour et Bonsoir maintiennent en coherence les homedirectories.
+La commande Bonsoir se lance en saisissant l adresse absolu du fichier dans le terminal.
+Sauvegardent les adresses des fichiers modifiés et/ou supprimes depuis la derniere utilisation de la commande bonjour.mv/bonjour.rm
+--help displays help
+
+.SH OPTIONS
+.TP
+.BR \--help "
+Displays help
+
+.SH BUGS
+.B This script does not allow usage of mv natives options Default: tar
+
+On avait initialement utilise la commande find pour rechercher les fichiers plus recent. Finalement une option de Tar permet de directement trouver les fichiers plus recents car elle limite les bugs.
+La gestion du bug n'a pas été prise en charge pour ne pas allourdir le script.
+
+On utilise une liste d’exception aisément modifiable par tout utilisateurs. Permet de selectionner les fichiers qu on ne veut pas synchroniser.
+
+
+
+
+
+.SH AUTHOR
+Written by Raphael BONNET, Hubert GRUNIG, Vincent GUERLAIS, Nori SADOUNI
+
+.SH COPYRIGHT
+This  is  free  software: you are free to change and redistribute it.  There is NO WARRANTY, to the extent permitted by
+law.
+
+.SH SEE ALSO
+tar
+
+Full documentation at: <http://www.gnu.org/software/tar/manual/tar.html>
