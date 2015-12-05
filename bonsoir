@@ -20,6 +20,8 @@ for patern in ${exclusion} ; do
 	exclude="$exclude --exclude=$patern"
 done
 
+#on utilise les options de tar plutot que les options de find
+#find $dossierHome ! -type d -newer $recent -exec tar -rf $archive {} \; || exit 1
 #l'option P permet de garder les path absolus pour que lors de l'extraction les fichiers soit écrits au bon endroit. 
 tar -cPf ${locate_archive} --newer $recent $exclude ${dossierHome} || exit 1
 
