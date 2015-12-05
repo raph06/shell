@@ -45,9 +45,13 @@ Mouve/Remouve:
 -La gestion de l'options help et la gestion d'absence d'argument allourdit un peu le script mais rend le programme 
  plus robuste et "userfriendly"
 
+
 Bonjour/Bonsoir:
-- choix find
-- astuces
-- decouvertes
+
+- La sortie en "|| exit 1" permet d'eviter d'éviter que le script se termine normallement si une erreur a été détectée et de la signaler.
+- La fonction tar a été préférée au find indiqué dans le sujet dans un soucis de lisibilité, la méthode employée utilisant le find était longue qui ne prennait 
+  pas en compte les fichiers exclus (elle a tout de même été indiqué en commentaire dans le script)
+- Emploi de la méthode touch en fin de fichir bonsoir et en début de bonjour afin de modifier la date de dernire modification.
+- Liaison effectuées avec les fichiers déplacés/supprimés par mouve&remouve à l'aide de la fonction xargs qui passe en argument les path des fichiers affectés à RM (/bin/rm)
 
  
