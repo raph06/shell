@@ -1,31 +1,22 @@
 #!/bin/bash
 
-# Il faudra remplacer ces noms de fichiers de test par les véritables $HOME et clé une fois que le programme marchera sans risque pour $HOME
+source $HOME/.syncrc
 
-dossierHome=$HOME/Prog/ProjetMaster/tedir
-cle=$HOME/Prog/ProjetMaster/cle
-bonjour_mv=$cle/archive
-bonjour_rm=$cle/archive2
+#premet d'utiliser rm sans les confirmations
 RM=/bin/rm
 
-
-#archive est la liste temporaire pour les tests. Elle sera normalement composée de bonjour.rm et bonjour.mv
-
+#trace pour indiquer que le programme s'est executé
 echo "bonjour"
-
-#Touch pour modifier la date de dernière utilisation de bonjour parce que l'éxecution ne la modifie pas
-touch bonjour
+#Touch pour modifier la date de dernière utilisation de bonjour parce que l'éxecution ne 
+#la modifie pas et que l'on en a besoin pour bonsoir.
+touch ${bonjour}
 
 #suppression des fichiers supprimés ou déplacés par les commandes mouve ou remouve
-#for i in $(cat $cle/archive); do
-#	rm -rf "$i"
-#done
+remouve=
+cd ${location}
+cat bonjour.mv bonjour.rm | xargs "$RM" -rf
 
-cat $bonjour_mv $bonjour_rm | xargs $RM -rf
 
-#extraction de l'archive archiveBonsoir.tar dans $HOME
-
-tar -xf archiveBonsoir.tar
-
-#find . -name Hello4
-#cat $cle/archive2 | xargs find . -name
+#extraction de l'archive archive.tar dans $HOME
+#l'argument P permet de manipuler des chemins absolus pour écrire les fichiers directement aux bons endroits
+tar -xPf "${locate_archive}"
