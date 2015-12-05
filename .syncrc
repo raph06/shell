@@ -1,5 +1,29 @@
 ####Mouve and remouve options####
+
 #Pour une execution en sécurité et avec infos rempacez "f" par "vi"
 option_mv="-f"
 option_rm="-rf"
+
+
+####Bonjour and Bonsoir options####
+
+#Dossiers et chemins d'accès
+##Chemin du dossier qui doit être synchronisé ($HOME par défaut)
+dossierHome=$HOME/test
+
+##cle indique le chemin où est montée la clé USB
+cle=/mnt/usbkey
+
+##Chemins des fichiers qui contiennent les adresses des fichiers traités par mouve et remouve
+location=$Home
+
+##chemins des programmes bonjour et bonsoir
+bonjour=/bin/bonjour
+bonsoir=/bin/bonsoir
+
+##chemin de l'archive
+locate_archive=/mnt/usbkey/archive.tar
+
+#Liste de fichiers à ne pas prendre en compte
+exclusion='.* core core.* glop glop[-.]* toto toto[-.]* titi titi[-.]* tutu tutu[-.]* *.aux *.fig.bak *.log *.o *.old Trash .?* tmp glop[-.0-9] toto[-.0-9] titi[-.0-9] tutu[-.0-9] bonjour.mv bonjour.rm'
 
