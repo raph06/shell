@@ -1,4 +1,4 @@
-Fichiers:
+# Fichiers:
 
 -mouve + man 
 -remouve + man
@@ -7,7 +7,7 @@ Fichiers:
 -.syncrc
 -readme
 
-Configuration système avant utilisation:
+## Configuration système avant utilisation:
 
 - Vérifier que la clée usb est bien montée sur /dev/sdb1 avec la commande fdisk -l
   Si ce n'est pas le cas remplacer alors sdb1 (plus bas) par l'emplacement de votre clé /dev/emplacement_usb.
@@ -19,22 +19,22 @@ Configuration système avant utilisation:
   Utilisation: "man mouve"; "man remouve"
 - Placer les fichier mouve, remouve, bonjour, bonsoir dans le répertoire /bin
  
-Commentaires: 
+## Commentaires: 
 
-Généraux:
+### Généraux:
 -Projet intéressant car s'avère utile.
 -Nous avons donc tenté de rendre le projet le plus accessible et d'étoffer la description pour 
  permettre son utilisation par tout types d'utilisateurs 
 -Le mieux aurait été de créer un petit programme ‘opensource’ installable sur machine, qui aurait placé directement 
 les differents scripts dans les répertoires adéquats pour une utilisation plus rapide des différentes fonctions des programmes.
 
-Manuels:
+### Manuels:
 -La création du manuel est un aspect "découverte" du projet, instructif au regard de la syntaxe 
  particulière du fichier foo.1 et de la localisation et la spécification des dossiers mans dans la machine.
 -Les man de mouve et remouve contiennent les informations sur les bugs rencontrés, leur provenance et la difficulté pour les corriger.
 -Les fichiers ont été compressés pour gain d'espace mémoire.
 
-Mouve/Remouve:
+### Mouve/Remouve:
 -La fonction basename à été trouvée assez intuitivement. 
 -La fonction swich à permis le remplacement de boucles 'for' probablement maladroites.
 -Les options de mv et rm sont gérés avec la méthode arguments. On suppose qu'un bon utilisateur respectera l'ordre des 
@@ -46,7 +46,7 @@ Mouve/Remouve:
  plus robuste et "userfriendly"
 
 
-Bonjour/Bonsoir:
+### Bonjour/Bonsoir:
 
 - La sortie en "|| exit 1" permet d'eviter d'éviter que le script se termine normallement si une erreur a été détectée et de la signaler.
 - La fonction tar a été préférée au find indiqué dans le sujet dans un soucis de lisibilité, la méthode employée utilisant le find était longue qui ne prennait 
