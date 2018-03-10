@@ -67,7 +67,7 @@ if [ "$status" == 1 ]
 elif [ "$status" == 2 ]
   then
     echo 'clearing unwanted history'
-    sed -i.bak -e '/less/d;/ls/d;/man/d;/cat/d;/more/d;/clear/d;/echo/d;/help/d;/hist.sh.*/d;/test/d;/mkdir/d;/cp/d;/mv/d;/rm/d;/atom/d' $file
+    sed -i.bak -e '/less/d;/ls/d;/man/d;/cat/d;/more/d;/clear/d;/echo/d;/help/d;/hist.sh.*/d;/test/d;/mkdir/d;/cp/d;/mv/d;/rm/d;/atom/d;$!N; /^\(.*\)\n\1$/!P; D' $file
 elif [ "$status" == 3 ]
   then
     echo 'clearing file'
