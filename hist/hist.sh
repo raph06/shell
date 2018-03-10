@@ -50,15 +50,14 @@ case $key in
     ;;
 esac
 done
-
+if [ "$click" == 1 ]
+  then
+    file=$path$file
+    echo "$file"
+fi
 if [ "$status" == 1 ]
   then
     export PS1=$PS1'>'
-    if [ "$click" == 1 ]
-      then
-        file=$path$file
-        echo "$file"
-    fi
     stamp_hours='#######Done on: '$(date +%d-%b-%H_%M)
     echo -e $'\n'$stamp_hours$'\n' >> $file
     echo $stamp_hours >> $file
