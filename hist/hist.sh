@@ -4,7 +4,8 @@ usage="hist [-adcCmph] [path]\n-- program to save specific project history in a 
 \n\t-d --deactivate: Stops the recording \n\t-c --clear: Clear unwanted variables (man,ls,echo...)  \n\t-r --refresh: refresh file
 \n\t-m --message: Add comment to the previous saved line \n\t-h --help: Display help \n\t[path]: Input specific path (Optionnal; Default '.')"
 status=""
-file='tips.txt'
+root=$(pwd)'/'
+file=$root'tips.txt'
 
 if [ "$#" -eq  "0" ]
    then
@@ -52,12 +53,14 @@ esac
 done
 if [ "$click" == 1 ]
   then
-    file=$path$file
+    base=$(basename $file)
+    file=$root$path$base
     echo "$file"
 fi
 if [ "$status" == 1 ]
   then
     export PS1=${PS1}'• '
+    #export HISTFILE=$file
     stamp_hours='#######Done on: '$(date +%d-%b-%H_%M)
     echo -e $'\n'$stamp_hours$'\n' >> $file
   #Ignore='/ls*/d; /exit/d; /pwd/d; /clear/d; /cd*/d; /man*/d; /more*/d; /less*/d; /head*/d; /tail*/d; /nano*/d; /open*/d; /source*/d'
@@ -80,5 +83,6 @@ elif [ "$status" == 4 ]
 elif [ "$status" == 0 ]
   then
     export PS1=$(echo ${PS1} | sed 's/.\{1\}$//')
+    #export HISTFILE=$HOME'/.bash_history'
     PROMPT_COMMAND=update_terminal_cwd
 fi
