@@ -1,8 +1,8 @@
 #! /usr/bin/env bash
 
-usage="hist [-adcCmph] [path]\n-- program to save specific project history in a file called tips.txt \n\t-a --activate: Start the recording and signified by '•' symbol
+usage="hist [-adcrmh] [-np][argument]\n-- program to save specific project history in a file called tips.txt \n\t-a --activate: Start the recording and signified by '•' symbol
 \n\t-d --deactivate: Stops the recording \n\t-c --clear: Clear unwanted variables (man,ls,echo...)  \n\t-r --refresh: refresh file
-\n\t-m --message: Add comment to the previous saved line \n\t-h --help: Display help \n\t[path]: Input specific path (Optionnal; Default '.')"
+\n\t-m --message: Add comment to the previous saved line \n\t-n --name: Input specific name for your output file \n\t-p --path: Input specific path (Optionnal; Default '.') \n\t-h --help: Display help "
 status=""
 root=$(pwd)'/'
 file=$root'tips.txt'
@@ -13,6 +13,8 @@ if [ "$#" -eq  "0" ]
      echo -e $usage
      return 1
 fi
+
+
 click=0
 while [[ $# -gt 0 ]]
 do
@@ -35,30 +37,90 @@ case $key in
     status=3
     shift
     ;;
+    --refresh|-R)
+    status=5
+    shift
+    ;;
     --message|-m)
     status=4
+    shift
+    ;;
+    --path|-p)
+    click=1
+    p=1
+    echo ">>> Path supplied: $2"
+    path="$2"
+    if [ "${path: -1}" != '/' ]
+    then
+      path+='/'
+    fi
+    shift
+    shift
+    ;;
+    --name|-n)
+    click=1
+    n=1
+    echo ">>> Project name: $2"
+    project="$2"
+    shift
     shift
     ;;
     --help|-h)
     echo -e $usage
     return 1
     ;;
-    *)
-    echo ">>> Path supplied: $key"
-    path="$key"
-    click=1
-    shift
-    ;;
+    #*)
+    #echo ">>> Path supplied: $key"
+    #project="$key"
+    #click=1
+    #n=1
+    #shift
+    #;;
 esac
 done
-if [ "$click" == 1 ]
+if [ "$click" == 1 ]  && [ "$p" == 1 ]  && [ "$n" == 1 ]
+  then
+    base=$(basename $file) #tips.txt
+    file=$root$path #~/.../
+    #filename=$(basename -- "$file")#tips.txt
+    extension="${base##*.}" #txt
+    filename_base="${base%.*}" #tips
+    filename_base+='_'
+    project+='.' #project.
+    file=$file$filename_base$project$extension
+    echo "$file"
+    unset project
+elif [ "$click" == 1 ]  && [ "$p" == 1 ]
   then
     base=$(basename $file)
     file=$root$path$base
     echo "$file"
+    status=1
+elif [ "$click" == 1 ]  && [ "$n" == 1 ]
+  then
+    filename=$(basename -- "$file") #tips.txt
+    extension="${filename##*.}" #txt
+    filename_base="${filename%.*}" #tips
+    filename_base+='_' #tips_
+    project+='.' #project.
+    file=$root$filename_base$project$extension #~/tips_project.txt
+    echo "$file"
+    status=1
+    unset path
 fi
 if [ "$status" == 1 ]
   then
+    if [ "${PS1: -2}" == '• ' ]
+    then
+      echo "Error: Listener already on"
+      return 1
+    fi
+
+    unset n
+    unset p
+    unset click
+
+
     export PS1=${PS1}'• '
     #export HISTFILE=$file
     stamp_hours='#######Done on: '$(date +%d-%b-%H_%M)
